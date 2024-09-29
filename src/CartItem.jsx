@@ -38,26 +38,28 @@ const CartItem = ( {onContinueShopping} ) => {
 
   const handleDecrement = (item) => {
     
-    if(item.quantity <= 0){ 
+    let plant = Object.assign({}, item);
+    
+    plant.quantity = plant.quantity - 1;
+
+    if(plant.quantity === 0){ 
         handleRemove(item);
 
-    } else {
-        let plant = Object.assign({}, item);
-
-        plant.quantity = plant.quantity - 1;
-        
+    } else { 
         dispatch(updateQuantity(plant));
     }
 
   };
 
   const handleRemove = (item) => {
-    
     dispatch(removeItem(item));
   };
 
   // Calculate total cost based on quantity for an item
   const calculateTotalCost = (item) => {
+    let cost = parseInt(item.cost.slice(1, item.cost.length));
+        
+    return cost * item.quantity;
   };
 
   return (
