@@ -29,24 +29,31 @@ const CartItem = ( {onContinueShopping} ) => {
 
   const handleIncrement = (item) => {
     
-    
-    console.log(item);
-    dispatch(updateQuantity(item));
+    let plant = Object.assign({}, item);
+
+    plant.quantity = plant.quantity + 1;
+
+    dispatch(updateQuantity(plant));
   };
 
   const handleDecrement = (item) => {
     
     if(item.quantity <= 0){ 
         handleRemove(item);
+
     } else {
-        item.quantity++;
-        console.log(item.quantity);
-        dispatch(updateQuantity(item))
+        let plant = Object.assign({}, item);
+
+        plant.quantity = plant.quantity - 1;
+        
+        dispatch(updateQuantity(plant));
     }
 
   };
 
   const handleRemove = (item) => {
+    
+    dispatch(removeItem(item));
   };
 
   // Calculate total cost based on quantity for an item
