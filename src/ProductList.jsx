@@ -238,6 +238,7 @@ function ProductList() {
     fontSize: '30px',
     textDecoration: 'none',
    }
+
    const handleCartClick = (e) => {
     e.preventDefault();
     setShowCart(true); // Set showCart to true when cart icon is clicked
@@ -285,14 +286,15 @@ const handlePlantsClick = (e) => {
         <div className="product-grid">
             {plantsArray.map((category, index) => (
                 <div key={index}>
-                    <h1><div>{category.category}</div></h1>
+                    <h1 className="plant_heading plantname_heading"><div>{category.category}</div></h1>
                     <div className="product-list">
                         {category.plants.map((plant, plantIndex) => (
                             <div className="product-card" key={plantIndex}> 
+                                <div className="product-title">{plant.name}</div>
                                 <img className="product-image" src={plant.image} alt={plant.name} />
                                 <p className="product-price">{plant.cost}</p>
-                                <div className="product-title">{plant.name}</div>
-                                <button  className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>
+                                <div className="product-title">{plant.description}</div>
+                                <button className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>
                             </div>
                         ))}        
                     </div>      
