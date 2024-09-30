@@ -28,16 +28,15 @@ const CartItem = ( {onContinueShopping} ) => {
   };
 
   const handleIncrement = (item) => {
-    
     let plant = Object.assign({}, item);
 
     plant.quantity = plant.quantity + 1;
 
     dispatch(updateQuantity(plant));
+    
   };
 
   const handleDecrement = (item) => {
-    
     let plant = Object.assign({}, item);
     
     plant.quantity = plant.quantity - 1;
