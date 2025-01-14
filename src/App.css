@@ -123,9 +123,8 @@
   }
 
   .landing_content {
-    margin-top: 100px; /* Adjust as needed */
-    margin-left: 0;
-    width: 80%; /* Adjust as needed */
+    margin-left: 100%;
+    width: 100%;
     text-align: center;
   }
 
